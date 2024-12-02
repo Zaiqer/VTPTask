@@ -1,0 +1,104 @@
+﻿@model Member
+
+@{ ViewData["Title"] = "Edit"; }
+
+<div class="row content-wrapper">
+    <!-- left column -->
+    <div class="col-md-12">
+        <!-- general form elements -->
+        <div class="card card-primary mt-1 ml-2 mr-2">
+            <div class="card-header">
+                <h3 class="card-title">Düzəliş Et</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form method="post" enctype="multipart/form-data">
+                <div class="card-body">
+                    <div class="d-flex justify-content-center my-3">
+                        <img style="width:180px; height:180px; object-fit:contain" src="~/assets/images/members/@Model.Image" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Photo">İştirakçının şəkli</label>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input asp-for="Photo" type="file" class="custom-file-input">
+                                <label asp-for="Photo" class="custom-file-label">Fayl Seç</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Name">Adı</label>
+                        <input asp-for="Name" class="form-control">
+                        <span asp-validation-for="Name" class="alert-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Surname">Soyadı</label>
+                        <input asp-for="Surname" class="form-control">
+                        <span asp-validation-for="Surname" class="alert-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Age">Yaşı</label>
+                        <input asp-for="Age" class="form-control">
+                        <span asp-validation-for="Age" class="alert-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="University">Universitet</label>
+                        <input asp-for="University" class="form-control">
+                        <span asp-validation-for="University" class="alert-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Təhsil</label>
+                        <select name="degId" class="form-control">
+                            <option hidden value="@Model.DegreeId">@Model.Degree.Name</option>
+                            @foreach (Degree item in ViewBag.Degrees)
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Specialty">İxtisas</label>
+                        <input asp-for="Specialty" class="form-control">
+                        <span asp-validation-for="Specialty" class="alert-danger"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label asp-for="Year">Kurs</label>
+                        <input asp-for="Year" class="form-control">
+                        <span asp-validation-for="Year" class="alert-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Phone">Əlaqə nömrəsi</label>
+                        <input asp-for="Phone" class="form-control">
+                        <span asp-validation-for="Phone" class="alert-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Mail">E-mail adresi</label>
+                        <input asp-for="Mail" class="form-control">
+                        <span asp-validation-for="Mail" class="alert-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Cinsi</label>
+                        <select name="genId" class="form-control">
+                            <option hidden value="@Model.GenderId">@Model.Gender.Name</option>
+                            @foreach (Gender item in ViewBag.Gender)
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Təsdiq et</button>
+                    <a asp-action="Index" class="btn btn-secondary ml-2">Geri</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

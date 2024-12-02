@@ -1,0 +1,38 @@
+﻿@model Event
+
+@{ ViewData["Title"] = "Details"; }
+
+<div class="row content-wrapper">
+    <div class="col-12">
+        <!-- Default box -->
+        <div class="card mt-1 ml-2 mr-2">
+            <div class="card-header">
+                <h3 class="card-title font-weight-bold">Tədbirlər</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="d-flex">
+                    <div class="d-inline-block ml-5">
+                        <h5><b>Tədbirin adı: @Model.Name </b></h5>
+                        <div>Məkan: @Model.Place</div>
+                        <div>Tarixi: @Model.Date</div>
+                        <div>Müddəti: @Model.Duration</div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+                <div>
+                    <a class="btn btn-primary btn-md" asp-action="Edit" asp-route-id="@Model.Id">Düzəliş Et</a>
+                    <a class="btn btn-secondary btn-md my-3 ml-2" asp-action="Index">Geri</a>
+                </div>
+            </div>
+        </div>
+        <!-- /.card -->
+    </div>
+</div>

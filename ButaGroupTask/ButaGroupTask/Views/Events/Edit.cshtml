@@ -1,0 +1,54 @@
+﻿@model Event
+
+@{ ViewData["Title"] = "Edit"; }
+
+<div class="row content-wrapper">
+    <!-- left column -->
+    <div class="col-md-12">
+        <!-- general form elements -->
+        <div class="card card-primary mt-1 ml-2 mr-2">
+            <div class="card-header">
+                <h3 class="card-title">Düzəliş Et</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form method="post" enctype="multipart/form-data">
+                <div class="card-body">
+                    
+                    <div class="form-group">
+                        <label asp-for="Name">Adı</label>
+                        <input asp-for="Name" class="form-control">
+                        <span asp-validation-for="Name" class="alert-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Place">Məkan</label>
+                        <input asp-for="Place" class="form-control">
+                        <span asp-validation-for="Place" class="alert-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Date">Tarixi</label>
+                        <input asp-for="Date" class="form-control">
+                        <span asp-validation-for="Date" class="alert-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Duration">Müddəti</label>
+                        <input asp-for="Duration" class="form-control">
+                        <span asp-validation-for="Duration" class="alert-danger"></span>
+                    </div>
+                    
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Təsdiq et</button>
+                    <a asp-action="Index" class="btn btn-secondary ml-2">Geri</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+

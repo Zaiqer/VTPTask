@@ -1,0 +1,44 @@
+﻿@model Member
+
+@{ ViewData["Title"] = "Details"; }
+
+<div class="row content-wrapper">
+    <div class="col-12">
+        <!-- Default box -->
+        <div class="card mt-1 ml-2 mr-2">
+            <div class="card-header">
+                <h3 class="card-title font-weight-bold">İştirakçılar</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="d-flex">
+                    <img style="width:280px; height:140px; object-fit:contain" src="~/assets/images/members/@Model.Image" />
+                    <div class="d-inline-block ml-5">
+                        <h5><b>Adı və soyadı: @Model.Name @Model.Surname</b></h5>
+                        <div>Yaşı: @Model.Age</div>
+                        <div>Cinsi: @Model.Gender.Name</div>
+                        <div>Oxuduğu universitet: @Model.University</div>
+                        <div>İxtisas: @Model.Specialty</div>
+                        <div>Təhsil: @Model.Degree.Name</div>
+                        <div>Kurs: @Model.Year</div>
+                        <div>E-mail adresi: @Model.Mail</div>
+                        <div>Əlaqə nömrəsi: @Model.Phone</div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+                <div>
+                    <a class="btn btn-primary btn-md" asp-action="Edit" asp-route-id="@Model.Id">Düzəliş Et</a>
+                    <a class="btn btn-secondary btn-md my-3 ml-2" asp-action="Index">Geri</a>
+                </div>
+            </div>
+        </div>
+        <!-- /.card -->
+    </div>
+</div>

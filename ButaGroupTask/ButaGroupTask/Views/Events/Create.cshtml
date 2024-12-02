@@ -1,0 +1,54 @@
+﻿@model Event
+
+@{ ViewData["Title"] = "Create"; }
+
+<div class="content-wrapper">
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary mt-1 ml-2 mr-2">
+                <div class="card-header">
+                    <h3 class="card-title">Yeni Tədbir</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form method="post" enctype="multipart/form-data">
+                    <div class="card-body">
+                        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                        
+                        <div class="form-group">
+                            <label asp-for="Name" class="control-label">Ad</label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Place" class="control-label">Məkan</label>
+                            <input asp-for="Place" class="form-control" />
+                            <span asp-validation-for="Place" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Duration" class="control-label">Müddəti</label>
+                            <input asp-for="Duration" class="form-control" />
+                            <span asp-validation-for="Duration" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label asp-for="Date" class="control-label">Tarix</label>
+                            <input asp-for="Date" class="form-control" />
+                            <span asp-validation-for="Date" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">Təsdiq Et</button>
+                        <a asp-action="Index" class="btn btn-secondary ml-2">Geri</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

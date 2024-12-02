@@ -1,0 +1,102 @@
+﻿@model Member
+
+@{ ViewData["Title"] = "Create"; }
+
+<div class="content-wrapper">
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary mt-1 ml-2 mr-2">
+                <div class="card-header">
+                    <h3 class="card-title">Yeni İştirakçı</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form method="post" enctype="multipart/form-data">
+                    <div class="card-body">
+                        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                        <div class="form-group">
+                            <label asp-for="Photo">İştirakçının Şəkli</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input asp-for="Photo" type="file" class="custom-file-input">
+                                    <label asp-for="Photo" class="custom-file-label">Fayl Seç</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Name" class="control-label">Ad</label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Surname" class="control-label">Soyad</label>
+                            <input asp-for="Surname" class="form-control" />
+                            <span asp-validation-for="Surname" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Age" class="control-label">Yaş</label>
+                            <input asp-for="Age" class="form-control" />
+                            <span asp-validation-for="Age" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Cins Seçimi</label>
+                            <select class="form-control" name="genId">
+                                <option value="" selected disabled>Seçin</option>
+                                @foreach (Gender item in ViewBag.Gender)
+                                {
+                            <option value="@item.Id">@item.Name</option>}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="University" class="control-label">Universitet</label>
+                            <input asp-for="University" class="form-control" />
+                            <span asp-validation-for="University" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Təhsil Seçimi</label>
+                            <select class="form-control" name="degId">
+                                <option value="" selected disabled>Seçin</option>
+                                @foreach (Degree item in ViewBag.Degrees)
+                                {
+                                    <option value="@item.Id">@item.Name</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Specialty" class="control-label">İxtisas</label>
+                            <input asp-for="Specialty" class="form-control" />
+                            <span asp-validation-for="Specialty" class="text-danger"></span>
+                        </div>
+
+                        
+                        <div class="form-group">
+                            <label asp-for="Year" class="control-label">Kurs</label>
+                            <input asp-for="Year" class="form-control" />
+                            <span asp-validation-for="Year" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Mail" class="control-label">Email Adresi</label>
+                            <input asp-for="Mail" class="form-control" />
+                            <span asp-validation-for="Mail" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Phone" class="control-label">Əlaqə Nömrəsi</label>
+                            <input asp-for="Phone" class="form-control" />
+                            <span asp-validation-for="Phone" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">Təsdiq Et</button>
+                        <a asp-action="Index" class="btn btn-secondary ml-2">Geri</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
